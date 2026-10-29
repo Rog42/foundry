@@ -9,3 +9,4 @@ private/
 *.private.md
 playwright-report/
 test-results/
+supabase/.temp/
