@@ -42,3 +42,7 @@ GST, PSI, company tax, extraction and personal tax depend on facts and professio
 3. After owner approval, add a Cloudflare Worker cron that creates private discovery tasks, with spend limits, idempotent run IDs and no autonomous outreach/deployment.
 4. Connect genuinely distinct research providers only after approving credentials and budgets. Log provenance and exposure; blind initial results before synthesis.
 5. Add owner-specific financial scenario modelling only with reconciled inputs and reviewed tax assumptions.
+
+## Shared-project escape-hatch review
+
+RLS cannot protect data if an exposed SECURITY DEFINER RPC accepts arbitrary SQL with an owner that bypasses RLS. The connection sprint restricts the optional legacy `public.exec_sql(text)` function to the trusted `service_role`. Browser roles retain no execute grant. This is a necessary shared-project security change; server integrations must not rely on anonymous arbitrary SQL. Tests cover the grant boundary and API-schema list preservation.
